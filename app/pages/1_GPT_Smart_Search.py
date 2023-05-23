@@ -34,6 +34,7 @@ AZURE_OPENAI_API_VERSION = "2023-03-15-preview"
 
 # setting encoding for GPT3.5 / GPT4 models
 MODEL = "gpt-35-turbo"
+DEPLOYMENT = "chat"
 
 def clear_submit():
     st.session_state["submit"] = False
@@ -133,7 +134,7 @@ else:
                                     top_docs = docs
                                     chain_type = "stuff"
                                 
-                                answer = get_answer(top_docs, query, language=language, deployment=MODEL, chain_type = chain_type)
+                                answer = get_answer(top_docs, query, language=language, deployment=DEPLOYMENT, chain_type = chain_type)
                             else:
                                 answer = {"output_text":"No results found" }
                     else:
