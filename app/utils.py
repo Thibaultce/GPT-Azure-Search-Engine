@@ -281,13 +281,13 @@ def order_search_results( agg_search_results: List[dict], reranker_threshold: in
     
     for search_results in agg_search_results:
         for result in search_results['value']:
-            if result['@search.score'] > reranker_threshold: # Show results that are at least 25% of the max possible score=4
+            if result['@search.rerankerScore'] > reranker_threshold: # Show results that are at least 25% of the max possible score=4
                 content[result['id']]={
                                         "title": result['title'],
                                         "chunks": result['pages'],
                                         "language": result['language'],
-                                        "caption": "", #result['@search.captions'][0]['text'],
-                                        "score": result['@search.score'],
+                                        "caption": result['@search.captions'][0]['text'],
+                                        "score": result['@search.rerankerScore'],
                                         "name": result['metadata_storage_name'],
                                         "location": result['metadata_storage_path']                  
                                     }
