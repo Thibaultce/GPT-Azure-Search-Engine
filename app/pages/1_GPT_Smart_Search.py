@@ -109,7 +109,7 @@ else:
 
             except Exception as e:
                 st.markdown("Not data returned from Azure Search, check connection..")
-                st.markdown(e)
+                st.markdown(e.message)
             
             if "ordered_results" in locals():
                 try:
