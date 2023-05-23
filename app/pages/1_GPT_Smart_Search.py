@@ -98,12 +98,8 @@ else:
                 index1_name = "cogsrch-index-files"
                 index2_name = "cogsrch-index-csv"
                 indexes = [index1_name, index2_name]
-                st.markdown("Start query")
                 agg_search_results = get_search_results(query, indexes)
-                st.markdown("Query succeedeed")
                 ordered_results = order_search_results(agg_search_results, reranker_threshold=1)
-                st.markdown("Ordering done")
-
 
                 st.session_state["submit"] = True
                 # Output Columns
